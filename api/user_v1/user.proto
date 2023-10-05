@@ -5,9 +5,9 @@ package user_v1;
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/empty.proto";
 
-option go_package = "github.com/olezhek28/microservices_course/week_1/grpc/pkg/auth_v1;auth_v1";
+option go_package = "github.com/nazip/grpc-auth/pkg/user_v1;user_v1";
 
-service AuthV1 {
+service UserV1 {
     rpc Create(CreateRequest) returns (CreateResponse);
     rpc Get(GetRequest) returns (GetResponse);
     rpc Update(UpdateRequest) returns (google.protobuf.Empty);
@@ -20,16 +20,20 @@ enum Role {
 }
 
 message User {
-    uint64 id = 6;
+    uint64 id = 1;
+    string name = 2;
+    string email = 3;
+    Role role = 4;
+    google.protobuf.Timestamp created_at = 5;
+    google.protobuf.Timestamp updated_at = 6;  
+}
+
+message CreateRequest {
     string name = 1;
     string email = 2;
     string password = 3;
     string password_confirm = 4;
     Role role = 5;
-}
-
-message CreateRequest {
-    User user = 1;
 }
   
 message CreateResponse {
@@ -41,12 +45,7 @@ message GetRequest {
 }
   
 message GetResponse {
-    uint64 id = 1;
-    string name = 2;
-    string email = 3;
-    Role role = 4;
-    google.protobuf.Timestamp created_at = 5;
-    google.protobuf.Timestamp updated_at = 6;  
+    User User = 1;
 }
 
 message UpdateRequest {
