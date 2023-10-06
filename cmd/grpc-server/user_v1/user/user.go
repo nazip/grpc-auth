@@ -10,11 +10,11 @@ import (
 )
 
 // Users map[uint64]User
-type Users map[uint32]User
+type Users map[uint64]User
 
 // User struct
 type User struct {
-	ID        uint32    `json:"id"`
+	ID        uint64    `json:"id"`
 	Name      string    `json:"name"`
 	Email     string    `json:"email"`
 	Role      desc.Role `json:"role"`
@@ -25,7 +25,7 @@ type User struct {
 
 // NewUsers () Users
 func NewUsers() Users {
-	return make(map[uint32]User, 0)
+	return make(map[uint64]User, 0)
 }
 
 // CreatedUser (ctx context.Context, user User) (User, error)
@@ -47,7 +47,7 @@ func (u Users) CreatedUser(_ context.Context, user User) (User, error) {
 }
 
 // ReadUser (ctx context.Context, id uint64) (User, error)
-func (u Users) ReadUser(_ context.Context, id uint32) (User, error) {
+func (u Users) ReadUser(_ context.Context, id uint64) (User, error) {
 	user1, ok := u[id]
 	if ok {
 		return user1, nil
@@ -71,7 +71,7 @@ func (u Users) UpdateUser(_ context.Context, user User) (User, error) {
 }
 
 // DeleteUser (ctx context.Context, userID uint64) error
-func (u Users) DeleteUser(_ context.Context, userID uint32) error {
+func (u Users) DeleteUser(_ context.Context, userID uint64) error {
 	_, ok := u[userID]
 	if !ok {
 		return fmt.Errorf("user %d not found", userID)

@@ -24,7 +24,7 @@ func NewServer() *server {
 }
 
 func (s *server) Create(ctx context.Context, req *desc.CreateRequest) (*desc.CreateResponse, error) {
-	id := gofakeit.Uint32()
+	id := gofakeit.Uint64()
 
 	if req.Password != req.PasswordConfirm {
 		return &desc.CreateResponse{}, fmt.Errorf("password != password confirm")
@@ -68,7 +68,7 @@ func (s *server) Get(ctx context.Context, req *desc.GetRequest) (*desc.GetRespon
 
 func (s *server) Update(ctx context.Context, req *desc.UpdateRequest) (*emptypb.Empty, error) {
 	_, err := s.users.UpdateUser(ctx, user.User{
-		ID:    uint32(req.Id),
+		ID:    req.Id,
 		Name:  req.Name,
 		Email: req.Email,
 	})
@@ -80,7 +80,7 @@ func (s *server) Update(ctx context.Context, req *desc.UpdateRequest) (*emptypb.
 }
 
 func (s *server) Delete(ctx context.Context, req *desc.DeleteRequest) (*emptypb.Empty, error) {
-	err := s.users.DeleteUser(ctx, uint32(req.Id))
+	err := s.users.DeleteUser(ctx, req.Id)
 	if err != nil {
 		return &emptypb.Empty{}, err
 	}

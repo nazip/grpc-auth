@@ -20,7 +20,7 @@ enum Role {
 }
 
 message User {
-    uint32 id = 1;
+    uint64 id = 1;
     string name = 2;
     string email = 3;
     Role role = 4;
@@ -37,11 +37,11 @@ message CreateRequest {
 }
   
 message CreateResponse {
-    uint32 id = 1;
+    uint64 id = 1;
 }
 
 message GetRequest {
-    uint32 id = 1;
+    uint64 id = 1;
 }
   
 message GetResponse {
@@ -49,11 +49,11 @@ message GetResponse {
 }
 
 message UpdateRequest {
-    uint32 id = 1;
+    uint64 id = 1;
     string name = 2;
     string email = 3;
 }
 
 message DeleteRequest {
-    uint32 id = 1;
+    uint64 id = 1;
 }
