@@ -26,3 +26,7 @@ generate:
 	--plugin=protoc-gen-go-grpc=bin/protoc-gen-go-grpc \
 	api/$(API)_v$(VERSION)/$(API).proto
 
+dockerBuildAndPush:
+	docker buildx build --no-cache --platform linux/amd64 -t cr.selcloud.ru/nazip-reestr/auth:v0.0.1 .
+	docker login -u token -p CRgAAAAA20Et5rj42dc0m7h020YikYpsUtaadRgl cr.selcloud.ru/nazip-reestr
+	docker push cr.selcloud.ru/nazip-reestr/auth:v0.0.1
