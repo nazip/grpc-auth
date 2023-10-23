@@ -8,9 +8,9 @@ COPY . .
 
 RUN go mod download
 RUN go build -o auth cmd/grpc-server/user_v1/main.go
-RUN apk update --no-cache && apk add --no-cache ca-certificates
+# RUN apk update --no-cache && apk add --no-cache ca-certificates
 
-FROM alpine
+FROM alpine as prod
 
 WORKDIR /app
 
