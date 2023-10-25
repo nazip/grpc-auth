@@ -1,15 +1,17 @@
 -- +goose Up
 
-create table note (
-    id serial primary key,
-    title text not null,
-    body text not null,
-    created_at timestamp not null default now(),
-    updated_at timestamp
+CREATE TABLE users (
+                       id   BIGSERIAL PRIMARY KEY,
+                       name text      NOT NULL,
+                       email  text,
+                       password text NOT NULL,
+                       role int NOT NULL,
+                       created_at TIMESTAMP,
+                       updated_at TIMESTAMP
 );
 
 
 -- +goose Down
 
-drop table note;
+drop table users;
 

@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"flag"
+	"github.com/nazip/grpc-auth/internal/repository/user"
 	"log"
 	"net"
 	"os"
@@ -21,7 +22,7 @@ import (
 var configPath string
 
 func init() {
-	flag.StringVar(&configPath, "config-path", ".env", "path to config file")
+	flag.StringVar(&configPath, "config-path", "local.env", "path to config file")
 }
 
 func main() {
@@ -53,16 +54,17 @@ func main() {
 	}
 	defer pool.Close()
 
+	s := grpc.NewServer()
+	reflection.Register(s)
+
+	repUser := user.NewRepository(pool)
+	srv := server.NewServer(repUser)
+	desc.RegisterUserV1Server(s, srv)
+
 	lis, err := net.Listen("tcp", grpcConfig.GRPCAddress())
 	if err != nil {
 		log.Fatalf("failed to listen: %v", err)
 	}
-
-	s := grpc.NewServer()
-	reflection.Register(s)
-
-	server := server.NewServer()
-	desc.RegisterUserV1Server(s, server)
 
 	stop := make(chan os.Signal, 1)
 	signal.Notify(stop, syscall.SIGTERM, syscall.SIGINT)
