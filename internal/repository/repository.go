@@ -2,13 +2,12 @@ package repository
 
 import (
 	"context"
-	desc "github.com/nazip/grpc-auth/pkg/user_v1"
-	"google.golang.org/protobuf/types/known/emptypb"
+	model "github.com/nazip/grpc-auth/internal/service/user"
 )
 
-type NoteRepository interface {
-	Create(ctx context.Context, req *desc.CreateRequest) (*desc.CreateResponse, error)
-	Get(ctx context.Context, req *desc.GetRequest) (*desc.GetResponse, error)
-	Update(ctx context.Context, req *desc.UpdateRequest) (*emptypb.Empty, error)
-	Delete(ctx context.Context, req *desc.DeleteRequest) (*emptypb.Empty, error)
+type UserRepository interface {
+	Create(ctx context.Context, req *model.User) (uint64, error)
+	Get(ctx context.Context, id uint64) (*model.User, error)
+	Update(ctx context.Context, req *model.User) error
+	Delete(ctx context.Context, id uint64) error
 }

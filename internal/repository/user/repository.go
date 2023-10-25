@@ -14,7 +14,7 @@ type repo struct {
 	q *Queries
 }
 
-func NewRepository(db *pgxpool.Pool) repository.NoteRepository {
+func NewRepository(db *pgxpool.Pool) repository.UserRepository {
 	return &repo{New(db)}
 }
 
