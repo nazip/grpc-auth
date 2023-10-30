@@ -2,7 +2,7 @@ package repository
 
 import (
 	"context"
-	model "github.com/nazip/grpc-auth/internal/service/user"
+	model "github.com/nazip/grpc-auth/internal/models/service"
 )
 
 type UserRepository interface {

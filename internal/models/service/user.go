@@ -1,11 +1,9 @@
-package user
+package service
 
-import (
-	"time"
-)
+import "time"
 
 type User struct {
-	ID        int64
+	ID        uint64
 	Name      string
 	Email     string
 	Password  string
