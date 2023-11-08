@@ -6,7 +6,6 @@ import (
 	modelService "github.com/nazip/grpc-auth/internal/models/service"
 	desc "github.com/nazip/grpc-auth/pkg/user_v1"
 	"google.golang.org/protobuf/types/known/timestamppb"
-	"time"
 )
 
 func GetProtoUserFromService(user *modelService.User) *desc.User {
@@ -48,11 +47,11 @@ func GetNewServiceUserForUpdate(req *desc.UpdateRequest) *modelService.User {
 
 func GetNewServiceUserForCreate(req *desc.CreateRequest) *modelService.User {
 	return &modelService.User{
-		Name:      req.Name,
-		Email:     req.Email,
-		Password:  req.Password,
-		Role:      int32(req.Role),
-		CreatedAt: time.Now().UTC(),
+		Name:     req.Name,
+		Email:    req.Email,
+		Password: req.Password,
+		Role:     int32(req.Role),
+		//CreatedAt: time.Now().UTC(),
 	}
 }
 

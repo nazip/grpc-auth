@@ -4,7 +4,7 @@ import (
 	"context"
 	"database/sql"
 	sq "github.com/Masterminds/squirrel"
-	"github.com/jackc/pgx/v4/pgxpool"
+	"github.com/nazip/grpc-auth/internal/client/db"
 	"github.com/nazip/grpc-auth/internal/converter"
 	"github.com/nazip/grpc-auth/internal/helpers"
 	modelRepository "github.com/nazip/grpc-auth/internal/models/repository"
@@ -27,10 +27,10 @@ const (
 )
 
 type repo struct {
-	db *pgxpool.Pool
+	db db.Client
 }
 
-func NewRepository(db *pgxpool.Pool) repository.UserRepository {
+func NewRepository(db db.Client) repository.UserRepository {
 	return &repo{db}
 }
 
@@ -46,8 +46,13 @@ func (u *repo) Create(ctx context.Context, req *modelService.User) (uint64, erro
 		return 0, err
 	}
 
+	q := db.Query{
+		Name:     "user_repository.Create",
+		QueryRaw: query,
+	}
+
 	var id uint64
-	err = u.db.QueryRow(ctx, query, args...).Scan(&id)
+	err = u.db.DB().QueryRowContext(ctx, q, args...).Scan(&id)
 	if err != nil {
 		return 0, err
 	}
@@ -67,8 +72,13 @@ func (u *repo) Get(ctx context.Context, id uint64) (*modelService.User, error) {
 		return nil, err
 	}
 
+	q := db.Query{
+		Name:     "user_repository.Get",
+		QueryRaw: query,
+	}
+
 	user := modelRepository.User{}
-	err = u.db.QueryRow(ctx, query, args...).Scan(&user.ID, &user.Name,
+	err = u.db.DB().QueryRowContext(ctx, q, args...).Scan(&user.ID, &user.Name,
 		&user.Email, &user.Password, &user.Role, &user.CreatedAt, &user.UpdatedAt)
 	if err != nil {
 		return nil, err
@@ -89,7 +99,12 @@ func (u *repo) Update(ctx context.Context, req *modelService.User) error {
 		return err
 	}
 
-	_, err = u.db.Exec(ctx, query, args...)
+	q := db.Query{
+		Name:     "user_repository.Update",
+		QueryRaw: query,
+	}
+
+	_, err = u.db.DB().ExecContext(ctx, q, args...)
 	if err != nil {
 		return err
 	}
@@ -104,7 +119,12 @@ func (u *repo) Delete(ctx context.Context, id uint64) error {
 		return err
 	}
 
-	_, err = u.db.Exec(ctx, query, args)
+	q := db.Query{
+		Name:     "user_repository.Delete",
+		QueryRaw: query,
+	}
+
+	_, err = u.db.DB().ExecContext(ctx, q, args)
 	if err != nil {
 		return err
 	}

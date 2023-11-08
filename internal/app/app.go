@@ -57,7 +57,7 @@ func (a *App) initDeps(ctx context.Context) error {
 }
 
 func (a *App) initConfig(_ context.Context) error {
-	err := config.Load(".env")
+	err := config.Load("local.env")
 	if err != nil {
 		return err
 	}
@@ -75,7 +75,7 @@ func (a *App) initGRPCServer(ctx context.Context) error {
 
 	reflection.Register(a.grpcServer)
 
-	desc.RegisterUserV1Server(a.grpcServer, a.serviceProvider.userImpl)
+	desc.RegisterUserV1Server(a.grpcServer, a.serviceProvider.UserApi(ctx))
 
 	return nil
 }

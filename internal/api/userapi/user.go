@@ -13,8 +13,8 @@ type UserAPI struct {
 	serviceUser service.UserService
 }
 
-func NewUserAPI(rep service.UserService) *UserAPI {
-	return &UserAPI{serviceUser: rep}
+func NewUserAPI(srv service.UserService) *UserAPI {
+	return &UserAPI{serviceUser: srv}
 }
 
 func (s *UserAPI) Create(ctx context.Context, req *desc.CreateRequest) (*desc.CreateResponse, error) {
