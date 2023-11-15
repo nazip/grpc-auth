@@ -11,3 +11,13 @@ type UserService interface {
 	Update(ctx context.Context, user *model.User) error
 	Delete(ctx context.Context, id uint64) error
 }
+
+type AuthService interface {
+	Login(ctx context.Context, user *model.Auth) error
+	RefreshToken(ctx context.Context, token string) (string, error)
+	AccessToken(ctx context.Context, token string) (string, error)
+}
+
+type AccessService interface {
+	Check(ctx context.Context, userID uint64) error
+}

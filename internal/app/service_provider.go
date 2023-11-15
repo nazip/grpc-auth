@@ -2,27 +2,42 @@ package app
 
 import (
 	"context"
-	"github.com/nazip/grpc-auth/internal/api/userapi"
+	accessAPI "github.com/nazip/grpc-auth/internal/api/access/v1/access"
+	authAPI "github.com/nazip/grpc-auth/internal/api/auth/v1/auth"
+	userAPI "github.com/nazip/grpc-auth/internal/api/user/v1/user"
 	"github.com/nazip/grpc-auth/internal/client/db"
 	"github.com/nazip/grpc-auth/internal/client/db/pg"
+	"github.com/nazip/grpc-auth/internal/client/db/redisdb"
 	"github.com/nazip/grpc-auth/internal/client/db/transaction"
 	"github.com/nazip/grpc-auth/internal/closer"
 	"github.com/nazip/grpc-auth/internal/config"
 	"github.com/nazip/grpc-auth/internal/repository"
-	userRepository "github.com/nazip/grpc-auth/internal/repository/user"
 	"github.com/nazip/grpc-auth/internal/service"
-	userService "github.com/nazip/grpc-auth/internal/service/user"
 	"log"
 )
 
 type serviceProvider struct {
-	pgConfig       config.PGConfig
-	dbClient       db.Client
-	txManager      db.TxManager
-	grpcConfig     config.GRPCConfig
-	userRepository repository.UserRepository
-	userService    service.UserService
-	userApi        *userapi.UserAPI
+	pgConfig    config.PGConfig
+	dbClient    db.Client
+	redisClient redisdb.CacheDB
+	txManager   db.TxManager
+	grpcConfig  config.GRPCConfig
+	httpConfig  config.HTTPConfig
+
+	userRepository   repository.UserRepository
+	authRepository   repository.AuthRepository
+	accessRepository repository.AccessRepository
+
+	userService   service.UserService
+	authService   service.AuthService
+	accessService service.AccessService
+
+	userApiImpl   *userAPI.Implementation
+	authApiImpl   *authAPI.Implementation
+	accessApiImpl *accessAPI.Implementation
+
+	swaggerConfig config.SwaggerConfig
+	redisConfig   config.RedisConfig
 }
 
 func newServiceProvider() *serviceProvider {
@@ -48,61 +63,27 @@ func (s *serviceProvider) DBClient(ctx context.Context) db.Client {
 	return s.dbClient
 }
 
+func (s *serviceProvider) RedisClient(ctx context.Context) redisdb.CacheDB {
+	if s.redisClient == nil {
+		//cl := redis.NewClient(s.RedisConfig().Options())
+		redisClient, err := redisdb.New(ctx, s.RedisConfig().Options())
+		if err != nil {
+			log.Fatalf("failed to create redis client: %v", err)
+		}
+
+		if err := redisClient.Ping(ctx); err != nil {
+			log.Fatalf("failed to create redis client: %v", err)
+		}
+		s.redisClient = redisClient
+	}
+
+	return s.redisClient
+}
+
 func (s *serviceProvider) TxManager(ctx context.Context) db.TxManager {
 	if s.txManager == nil {
 		s.txManager = transaction.NewTransactionManager(s.DBClient(ctx).DB())
 	}
 
 	return s.txManager
-}
-
-func (s *serviceProvider) PGConfig() config.PGConfig {
-	if s.pgConfig == nil {
-		cfg, err := config.NewPGConfig()
-		if err != nil {
-			log.Fatalf("failed to get pg config: %s", err.Error())
-		}
-
-		s.pgConfig = cfg
-	}
-
-	return s.pgConfig
-}
-
-func (s *serviceProvider) GRPCConfig() config.GRPCConfig {
-	if s.grpcConfig == nil {
-		cfg, err := config.NewGRPCConfig()
-		if err != nil {
-			log.Fatalf("failed to get grpc config: %s", err.Error())
-		}
-
-		s.grpcConfig = cfg
-	}
-
-	return s.grpcConfig
-}
-
-func (s *serviceProvider) UserRepository(ctx context.Context) repository.UserRepository {
-	if s.userRepository == nil {
-		s.userRepository = userRepository.NewRepository(s.DBClient(ctx))
-	}
-
-	return s.userRepository
-}
-
-func (s *serviceProvider) UserService(ctx context.Context) service.UserService {
-	if s.userService == nil {
-		s.userService = userService.NewServiceUser(
-			s.UserRepository(ctx),
-			s.TxManager(ctx),
-		)
-	}
-	return s.userService
-}
-
-func (s *serviceProvider) UserApi(ctx context.Context) *userapi.UserAPI {
-	if s.userApi == nil {
-		s.userApi = userapi.NewUserAPI(s.UserService(ctx))
-	}
-	return s.userApi
 }

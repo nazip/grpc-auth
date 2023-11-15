@@ -5,7 +5,7 @@ import (
 	"database/sql"
 	sq "github.com/Masterminds/squirrel"
 	"github.com/nazip/grpc-auth/internal/client/db"
-	"github.com/nazip/grpc-auth/internal/converter"
+	"github.com/nazip/grpc-auth/internal/converter/user/v1"
 	"github.com/nazip/grpc-auth/internal/helpers"
 	modelRepository "github.com/nazip/grpc-auth/internal/models/repository"
 	modelService "github.com/nazip/grpc-auth/internal/models/service"
@@ -84,7 +84,7 @@ func (u *repo) Get(ctx context.Context, id uint64) (*modelService.User, error) {
 		return nil, err
 	}
 
-	return converter.GetServiceUserFromRepo(&user), nil
+	return v1.ServiceUserFromRepo(&user), nil
 }
 
 func (u *repo) Update(ctx context.Context, req *modelService.User) error {

@@ -2,6 +2,7 @@ package db
 
 import (
 	"context"
+	"time"
 
 	"github.com/jackc/pgconn"
 	"github.com/jackc/pgx/v4"
@@ -63,4 +64,13 @@ type DB interface {
 	Transactor
 	Pinger
 	Close()
+}
+
+// CacheDB - Database for caching
+type CacheDB interface {
+	Close() error
+	Set(ctx context.Context, key string, value any, ttl time.Duration) error
+	Get(ctx context.Context, key string) ([]byte, error)
+	Db() any
+	Ping(ctx context.Context) error
 }

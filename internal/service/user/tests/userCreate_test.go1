@@ -1,0 +1,96 @@
+package tests
+
+import (
+	"context"
+	"github.com/brianvoe/gofakeit/v6"
+	"github.com/gojuno/minimock/v3"
+	"github.com/nazip/grpc-auth/internal/client/db"
+	txMocks "github.com/nazip/grpc-auth/internal/client/db/mocks"
+	model "github.com/nazip/grpc-auth/internal/models/service"
+	"github.com/nazip/grpc-auth/internal/repository"
+	repositoryMocks "github.com/nazip/grpc-auth/internal/repository/mocks"
+	"github.com/nazip/grpc-auth/internal/service"
+	userService "github.com/nazip/grpc-auth/internal/service/user"
+	userServiceMock "github.com/nazip/grpc-auth/internal/service/mocks"
+	"testing"
+)
+
+func TestUser_Create(t *testing.T) {
+	type userServiceMockFunc func(mc *minimock.Controller) service.UserService
+
+	type userRepositoryMockFunc func(mc *minimock.Controller) repository.UserRepository
+	type txMockFunc func(mc *minimock.Controller) db.TxManager
+
+	type args struct {
+		ctx context.Context
+		req *model.User
+	}
+
+	var (
+		mc  = minimock.NewController(t)
+		ctx = context.Background()
+
+		name     = gofakeit.Name()
+		email    = gofakeit.Email()
+		password = gofakeit.Animal()
+		id       = gofakeit.Uint64()
+
+		user = &model.User{
+			Name:     name,
+			Email:    email,
+			Password: password,
+			Role:     0,
+		}
+	)
+
+	defer t.Cleanup(mc.Finish)
+
+	tests := []struct {
+		name                   string
+		args                   args
+		want                   uint64
+		err                    error
+		userRepositoryMock userRepositoryMockFunc
+	}{
+		{
+			name: "success case",
+			args: args{
+				ctx: ctx,
+				req: user,
+			},
+			want: id,
+			err:  nil,
+			userRepositoryMock: func(mc *minimock.Controller) repository.UserRepository {
+				mock := repositoryMocks.NewUserRepositoryMock(mc)
+				mock.CreateMock.Expect(ctx, user).Return(id, nil)
+				return mock
+			},
+		},
+	}
+
+	for _, tt := range tests {
+		tt := tt
+		t.Run(tt.name, func(t *testing.T) {
+
+			RepositoryMock := tt.userRepositoryMock(mc)
+			servicem := userServiceMock.NewUserServiceMock(RepositoryMock)
+
+			servicem.Create()
+			tx := txMocks.NewTxManagerMock(mc)
+			srv := userService.NewServiceUser(RepositoryMock, tx)
+srv.
+			//rm := repositoryMocks.NewUserRepositoryMock(mc)
+			//tx := txMocks.NewTxManagerMock(mc)
+			//tt.serviceMock(rm, tx)
+			//userRepositoryMock := tt.userRepositoryMock(mc)
+			//TxManagerMock := tt.TxManagerMockFunc(mc)
+			//
+			//api := userService.NewServiceUser(userRepositoryMock, TxManagerMock)
+			//
+			//resp, err := api.Create(tt.args.ctx, tt.args.req)
+			//require.Equal(t, tt.err, err)
+			//require.Equal(t, tt.want, resp)
+		})
+	}
+
+}

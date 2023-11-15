@@ -1,0 +1,61 @@
+syntax = "proto3";
+
+package user_v2;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/empty.proto";
+
+option go_package = "github.com/nazip/grpc-auth/pkg/user_v2;user_v2";
+
+service UserV2 {
+    rpc Create(CreateRequest) returns (CreateResponse);
+    rpc Get(GetRequest) returns (GetResponse);
+    rpc Update(UpdateRequest) returns (google.protobuf.Empty);
+    rpc Delete(DeleteRequest) returns (google.protobuf.Empty);
+}
+
+enum Role {
+    USER = 0;
+    ADMIN = 1;
+}
+
+message User {
+    uint64 id = 1;
+    string name = 2;
+    string email = 3;
+    Role role = 4;
+    google.protobuf.Timestamp created_at = 5;
+    google.protobuf.Timestamp updated_at = 6;  
+}
+
+message CreateRequest {
+    string name = 1;
+    string email = 2;
+    string password = 3;
+    string password_confirm = 4;
+    Role role = 5;
+}
+  
+message CreateResponse {
+    uint64 id = 1;
+}
+
+message GetRequest {
+    uint64 id = 1;
+}
+  
+message GetResponse {
+    User User = 1;
+}
+
+message UpdateRequest {
+    uint64 id = 1;
+    string name = 2;
+    string email = 3;
+    string password = 4;
+    Role role = 5;
+}
+
+message DeleteRequest {
+    uint64 id = 1;
+}

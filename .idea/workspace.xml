@@ -5,36 +5,211 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="574181ca-f5de-47a7-b8d1-54cd8edd6acc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/internal/api/generate.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/api/mocks/api_minimock.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/api/userapi/tests/userCreate_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/api/userapi/tests/userDelete_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/api/userapi/tests/userGet_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/api/userapi/tests/userUpdate_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/client/db/db.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/client/db/pg/client.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/client/db/pg/pg.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/client/db/prettier/query_prettier.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/client/db/transaction/transaction.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/service/generate.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/service/mocks/user_service_minimock.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/service/user/tests/userCreate_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/access_v1/access.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/auth_v1/auth.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/user_v2/user.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/api/access/v1/access/access.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/api/access/v1/api.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/api/auth/v1/api.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/api/auth/v1/auth/auth.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/api/user/v2/api.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/api/user/v2/generate.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/api/user/v2/mocks/api_minimock.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/api/user/v2/user/tests/userDelete_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/api/user/v2/user/tests/userGet_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/api/user/v2/user/tests/userUpdate_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/api/user/v2/user/user.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/app/access.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/app/auth.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/app/config.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/app/user.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/client/db/generate.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/client/db/mocks/tx_manager_minimock.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/client/db/redisdb/client.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/config/http.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/config/redis.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/config/swagger.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/converter/auth/v1/auth.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/converter/user/v1/user.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/interceptor/auth.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/interceptor/validate.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/models/repository/auth.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/models/service/auth.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/repository/access/repository.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/repository/auth/repository.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/repository/generate.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/repository/mocks/user_repository_minimock.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/service/access/service.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/service/auth/service.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/service/user/tests/userCreate_test.go1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/access_v1/access.pb.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/access_v1/access.pb.validate.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/access_v1/access_grpc.pb.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/auth_v1/auth.pb.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/auth_v1/auth.pb.gw.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/auth_v1/auth.pb.validate.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/auth_v1/auth_grpc.pb.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/swagger/api.swagger.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/swagger/favicon-16x16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/swagger/favicon-32x32.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/swagger/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/swagger/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/swagger/oauth2-redirect.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/swagger/swagger-initializer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/swagger/swagger-ui-bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/swagger/swagger-ui-bundle.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/swagger/swagger-ui-es-bundle-core.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/swagger/swagger-ui-es-bundle-core.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/swagger/swagger-ui-es-bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/swagger/swagger-ui-es-bundle.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/swagger/swagger-ui-standalone-preset.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/swagger/swagger-ui-standalone-preset.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/swagger/swagger-ui.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/swagger/swagger-ui.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/swagger/swagger-ui.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/swagger/swagger-ui.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/user_v1/user.pb.gw.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/user_v1/user.pb.validate.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/user_v2/user.pb.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/user_v2/user_grpc.pb.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prod.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/statik/statik.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/BUILD.bazel" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/annotations.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/apikeys/BUILD.bazel" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/apikeys/v2/BUILD.bazel" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/apikeys/v2/apikeys.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/apikeys/v2/apikeys_grpc_service_config.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/apikeys/v2/apikeys_v2.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/apikeys/v2/resources.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/auth.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/backend.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/billing.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/client.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/cloudquotas/v1/BUILD.bazel" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/cloudquotas/v1/cloudquotas.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/cloudquotas/v1/cloudquotas_v1.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/cloudquotas/v1/cloudquotas_v1_grpc_service_config.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/cloudquotas/v1/resources.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/config_change.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/consumer.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/context.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/control.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/distribution.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/documentation.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/endpoint.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/error_reason.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/expr/BUILD.bazel" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/expr/cel.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/expr/conformance/v1alpha1/BUILD.bazel" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/expr/conformance/v1alpha1/conformance_service.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/expr/v1alpha1/BUILD.bazel" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/expr/v1alpha1/checked.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/expr/v1alpha1/eval.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/expr/v1alpha1/explain.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/expr/v1alpha1/syntax.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/expr/v1alpha1/value.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/expr/v1beta1/BUILD.bazel" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/expr/v1beta1/decl.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/expr/v1beta1/eval.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/expr/v1beta1/expr.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/expr/v1beta1/source.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/expr/v1beta1/value.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/field_behavior.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/field_info.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/http.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/httpbody.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/label.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/launch_stage.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/log.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/logging.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/metric.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/monitored_resource.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/monitoring.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/policy.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/quota.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/resource.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/routing.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/service.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/serviceconfig.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/servicecontrol/BUILD.bazel" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/servicecontrol/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/servicecontrol/v1/BUILD.bazel" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/servicecontrol/v1/check_error.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/servicecontrol/v1/distribution.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/servicecontrol/v1/http_request.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/servicecontrol/v1/log_entry.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/servicecontrol/v1/metric_value.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/servicecontrol/v1/operation.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/servicecontrol/v1/quota_controller.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/servicecontrol/v1/service_controller.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/servicecontrol/v1/servicecontrol.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/servicecontrol/v1/servicecontrol_grpc_service_config.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/servicecontrol/v2/BUILD.bazel" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/servicecontrol/v2/service_controller.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/servicecontrol/v2/servicecontrol.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/servicecontrol/v2/servicecontrol_grpc_service_config.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/servicemanagement/BUILD.bazel" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/servicemanagement/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/servicemanagement/v1/BUILD.bazel" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/servicemanagement/v1/resources.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/servicemanagement/v1/servicemanagement_gapic.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/servicemanagement/v1/servicemanagement_grpc_service_config.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/servicemanagement/v1/servicemanagement_v1.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/servicemanagement/v1/servicemanager.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/serviceusage/BUILD.bazel" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/serviceusage/v1/BUILD.bazel" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/serviceusage/v1/resources.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/serviceusage/v1/serviceusage.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/serviceusage/v1/serviceusage_grpc_service_config.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/serviceusage/v1/serviceusage_v1.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/serviceusage/v1beta1/BUILD.bazel" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/serviceusage/v1beta1/resources.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/serviceusage/v1beta1/serviceusage.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/serviceusage/v1beta1/serviceusage_grpc_service_config.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/serviceusage/v1beta1/serviceusage_v1beta1.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/source_info.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/system_parameter.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/usage.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/google/api/visibility.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/protoc-gen-openapiv2/options/annotations.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/protoc-gen-openapiv2/options/openapiv2.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor.protogen/validate/validate.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsonSchemas.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/cc5adcef-fa51-491f-9b9c-924b45d6d263.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/cc5adcef-fa51-491f-9b9c-924b45d6d263.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/cc5adcef-fa51-491f-9b9c-924b45d6d263/storage_v2/_src_/database/auth.qN0tAA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/cc5adcef-fa51-491f-9b9c-924b45d6d263/storage_v2/_src_/database/auth.qN0tAA/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/user_v1/user.proto" beforeDir="false" afterPath="$PROJECT_DIR$/api/user_v1/user.proto" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmd/grpc-server/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/grpc-server/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/api/userapi/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/api/userapi/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/api/api.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/api/user/v1/api.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/api/generate.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/api/user/v1/generate.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/api/mocks/api_minimock.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/api/user/v1/mocks/api_minimock.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/api/userapi/tests/userCreate_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/api/user/v2/user/tests/userCreate_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/api/userapi/tests/userDelete_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/api/user/v1/user/tests/userDelete_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/api/userapi/tests/userGet_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/api/user/v1/user/tests/userGet_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/api/userapi/tests/userUpdate_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/api/user/v1/user/tests/userUpdate_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/api/userapi/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/api/user/v1/user/user.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/app/app.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/app/app.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/app/service_provider.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/app/service_provider.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/converter/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/converter/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/client/db/db.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/client/db/db.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/config/grpc.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/config/grpc.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/converter/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/converter/user/v2/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/db/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/internal/db/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/repository/repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/repository/repository.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/repository/user/repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/repository/user/repository.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/service/user/create.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/service/user/create.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/service/user/service.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/service/user/service.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/service/service.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/service/service.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/service/user/tests/userCreate_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/api/user/v1/user/tests/userCreate_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/local.env" beforeDir="false" afterPath="$PROJECT_DIR$/local.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main" beforeDir="false" afterPath="$PROJECT_DIR$/main" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/user_v1/user.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/user_v1/user.pb.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/user_v1/user_grpc.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/user_v1/user_grpc.pb.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +227,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
   </component>
@@ -66,43 +244,50 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "DefaultGoTemplateProperty": "Go File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "RunOnceActivity.go.modules.automatic.dependencies.download": "true",
-    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "go.import.settings.migrated": "true",
-    "go.sdk.automatically.set": "true",
-    "last_opened_file_path": "/Users/nazipminnullin/gocode/src/lean/grpc/auth/internal/service/user/tests",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "preferences.keymap"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultGoTemplateProperty&quot;: &quot;Go File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.modules.automatic.dependencies.download&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/nazipminnullin/gocode/src/lean/grpc/auth/internal/api/access/v1&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;google.protobuf.language&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;,
+      &quot;redis&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/internal/service/user/tests" />
-      <recent name="$PROJECT_DIR$/internal/api/userapi/tests" />
-      <recent name="$PROJECT_DIR$/internal/api" />
+      <recent name="$PROJECT_DIR$/internal/api/access/v1" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/api/auth_v1" />
+      <recent name="$PROJECT_DIR$/pkg/swagger" />
+      <recent name="$PROJECT_DIR$/internal/client/db/transaction" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/internal/api/userapi/tests" />
+      <recent name="$PROJECT_DIR$/internal/models/repository" />
+      <recent name="$PROJECT_DIR$/internal/client/db" />
+      <recent name="$PROJECT_DIR$/internal/converter/user" />
+      <recent name="$PROJECT_DIR$/internal/api/user" />
+      <recent name="$PROJECT_DIR$/internal/converter/v1" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Test.TestUserAPI_Delete in github.com/nazip/grpc-auth/internal/api/userapi/tests">
+  <component name="RunManager" selected="Go Build.go build github.com/nazip/grpc-auth/cmd/grpc-server">
     <configuration name="go build github.com/nazip/grpc-auth/cmd/grpc-server" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="auth" />
       <working_directory value="$PROJECT_DIR$" />
@@ -112,61 +297,37 @@
       <filePath value="$PROJECT_DIR$/cmd/grpc-server/main.go" />
       <method v="2" />
     </configuration>
-    <configuration name="TestUserAPI_Create in github.com/nazip/grpc-auth/internal/api/userapi/tests" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="auth" />
-      <working_directory value="$PROJECT_DIR$/internal/api/userapi/tests" />
-      <root_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="github.com/nazip/grpc-auth/internal/api/userapi/tests" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <pattern value="^\QTestUserAPI_Create\E$" />
+    <configuration name="generate-swagger" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/Makefile" target="generate-swagger" workingDirectory="" arguments="">
+        <envs />
+      </makefile>
       <method v="2" />
     </configuration>
-    <configuration name="TestUserAPI_Delete in github.com/nazip/grpc-auth/internal/api/userapi/tests" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="auth" />
-      <working_directory value="$PROJECT_DIR$/internal/api/userapi/tests" />
-      <root_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="github.com/nazip/grpc-auth/internal/api/userapi/tests" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <pattern value="^\QTestUserAPI_Delete\E$" />
+    <configuration name="generate_access" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/Makefile" target="generate_access" workingDirectory="" arguments="">
+        <envs />
+      </makefile>
       <method v="2" />
     </configuration>
-    <configuration name="TestUserAPI_Get in github.com/nazip/grpc-auth/internal/api/userapi/tests" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="auth" />
-      <working_directory value="$PROJECT_DIR$/internal/api/userapi/tests" />
-      <root_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="github.com/nazip/grpc-auth/internal/api/userapi/tests" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <pattern value="^\QTestUserAPI_Get\E$" />
+    <configuration name="generate_auth" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/Makefile" target="generate_auth" workingDirectory="" arguments="">
+        <envs />
+      </makefile>
       <method v="2" />
     </configuration>
-    <configuration name="TestUserAPI_Update in github.com/nazip/grpc-auth/internal/api/userapi/tests" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="auth" />
-      <working_directory value="$PROJECT_DIR$/internal/api/userapi/tests" />
-      <root_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="github.com/nazip/grpc-auth/internal/api/userapi/tests" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <pattern value="^\QTestUserAPI_Update\E$" />
+    <configuration name="start-postgres" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/Makefile" target="start-postgres" workingDirectory="" arguments="">
+        <envs />
+      </makefile>
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Test.TestUserAPI_Delete in github.com/nazip/grpc-auth/internal/api/userapi/tests" />
-        <item itemvalue="Go Test.TestUserAPI_Update in github.com/nazip/grpc-auth/internal/api/userapi/tests" />
-        <item itemvalue="Go Test.TestUserAPI_Get in github.com/nazip/grpc-auth/internal/api/userapi/tests" />
-        <item itemvalue="Go Test.TestUserAPI_Create in github.com/nazip/grpc-auth/internal/api/userapi/tests" />
         <item itemvalue="Go Build.go build github.com/nazip/grpc-auth/cmd/grpc-server" />
+        <item itemvalue="Makefile Target.generate-swagger" />
+        <item itemvalue="Makefile Target.generate_auth" />
+        <item itemvalue="Makefile Target.generate_access" />
+        <item itemvalue="Makefile Target.start-postgres" />
       </list>
     </recent_temporary>
   </component>

@@ -7,17 +7,15 @@ import (
 	"log"
 )
 
-var configPath string
-
-func init() {
-	flag.StringVar(&configPath, "config-path", "local.env", "path to config file")
-}
-
 func main() {
+	var configFile string
+
+	flag.StringVar(&configFile, "config-file", "local.env", "path to config file")
+	flag.Parse()
 
 	ctx := context.Background()
 
-	a, err := app.NewApp(ctx)
+	a, err := app.NewApp(ctx, configFile)
 	if err != nil {
 		log.Fatalf("failed to init app: %s", err.Error())
 	}
