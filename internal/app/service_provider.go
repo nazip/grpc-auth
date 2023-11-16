@@ -21,23 +21,23 @@ type serviceProvider struct {
 	dbClient    db.Client
 	redisClient redisdb.CacheDB
 	txManager   db.TxManager
-	grpcConfig  config.GRPCConfig
-	httpConfig  config.HTTPConfig
 
-	userRepository   repository.UserRepository
-	authRepository   repository.AuthRepository
-	accessRepository repository.AccessRepository
-
-	userService   service.UserService
-	authService   service.AuthService
-	accessService service.AccessService
-
-	userApiImpl   *userAPI.Implementation
-	authApiImpl   *authAPI.Implementation
-	accessApiImpl *accessAPI.Implementation
-
+	grpcConfig    config.GRPCConfig
+	httpConfig    config.HTTPConfig
 	swaggerConfig config.SwaggerConfig
 	redisConfig   config.RedisConfig
+
+	userRepository repository.UserRepository
+	userService    service.UserService
+	userApiImpl    *userAPI.Implementation
+
+	authRepository repository.AuthRepository
+	authService    service.AuthService
+	authApiImpl    *authAPI.Implementation
+
+	accessRepository repository.AccessRepository
+	accessService    service.AccessService
+	accessApiImpl    *accessAPI.Implementation
 }
 
 func newServiceProvider() *serviceProvider {

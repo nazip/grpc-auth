@@ -5,20 +5,37 @@ IMAGE_VERSION:=0.0.2
 LOCAL_MIGRATION_DIR:=internal/db/migrations
 LOCAL_MIGRATION_DSN="host=localhost port=$(PG_PORT) dbname=$(PG_DATABASE_NAME) user=$(PG_USER) password=$(PG_PASSWORD) sslmode=disable"
 
-
-install-golangci-lint:
-	GOBIN=$(LOCAL_BIN) go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.53.3
-
 install-deps:
-	GOBIN=$(LOCAL_BIN) go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.28.1
-	GOBIN=$(LOCAL_BIN) go install -mod=mod google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.2
-	GOBIN=$(LOCAL_BIN) go install github.com/pressly/goose/v3/cmd/goose@v3.14.0
-	GOBIN=$(LOCAL_BIN) go install github.com/sqlc-dev/sqlc/cmd/sqlc@latest
-	GOBIN=$(LOCAL_BIN) go install github.com/gojuno/minimock/v3/cmd/minimock@latest
-	GOBIN=$(LOCAL_BIN) go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2@v2.15.2
-	GOBIN=$(LOCAL_BIN) go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-grpc-gateway@v2.15.2
-	GOBIN=$(LOCAL_BIN) go install github.com/rakyll/statik@v0.1.7
-	GOBIN=$(LOCAL_BIN) go install github.com/envoyproxy/protoc-gen-validate@v0.10.1
+		@if [ ! -f $(LOCAL_BIN)/protoc-gen-go-grpc ]; then \
+			GOBIN=$(LOCAL_BIN) go install -mod=mod google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.2;\
+		fi
+		@if [ ! -f $(LOCAL_BIN)/protoc-gen-go ]; then \
+			GOBIN=$(LOCAL_BIN) go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.28.1;\
+		fi
+		@if [ ! -f $(LOCAL_BIN)/goose ]; then \
+			GOBIN=$(LOCAL_BIN) go install github.com/pressly/goose/v3/cmd/goose@v3.14.0;\
+		fi
+		@if [ ! -f $(LOCAL_BIN)/sqlc ]; then \
+			GOBIN=$(LOCAL_BIN) go install github.com/sqlc-dev/sqlc/cmd/sqlc@latest;\
+		fi
+		@if [ ! -f $(LOCAL_BIN)/minimock ]; then \
+			GOBIN=$(LOCAL_BIN) go install github.com/gojuno/minimock/v3/cmd/minimock@latest;\
+		fi
+		@if [ ! -f $(LOCAL_BIN)/protoc-gen-openapiv2 ]; then \
+			GOBIN=$(LOCAL_BIN) go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2@v2.15.2;\
+		fi
+		@if [ ! -f $(LOCAL_BIN)/protoc-gen-grpc-gateway ]; then \
+			GOBIN=$(LOCAL_BIN) go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-grpc-gateway@v2.15.2;\
+		fi
+		@if [ ! -f $(LOCAL_BIN)/statik ]; then \
+			GOBIN=$(LOCAL_BIN) go install github.com/rakyll/statik@v0.1.7;\
+		fi
+		@if [ ! -f $(LOCAL_BIN)/golangci-lint ]; then \
+			GOBIN=$(LOCAL_BIN) go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.53.3;\
+		fi
+		@if [ ! -f $(LOCAL_BIN)/protoc-gen-validate ]; then \
+			GOBIN=$(LOCAL_BIN) go install github.com/envoyproxy/protoc-gen-validate@v0.10.1;\
+		fi
 
 lint:
 	$(LOCAL_BIN)/golangci-lint run ./... --config .golangci.pipeline.yaml
@@ -26,22 +43,18 @@ lint:
 test:
 	go test ./...
 
-get-deps:
-	go get -u google.golang.org/protobuf/cmd/protoc-gen-go
-	go get -u google.golang.org/grpc/cmd/protoc-gen-go-grpc
-
 generate-swagger:
 	mkdir -p pkg/swagger
 	make generate_user
 	$(LOCAL_BIN)/statik -src=pkg/swagger/ -include='*.css,*.html,*.js,*.json,*.png'
 
-generate_user:
+generate_user_api:
 	make VERSION=1 API=user generate
 
-generate_auth:
+generate_auth_api:
 	make VERSION=1 API=auth generate
 
-generate_access:
+generate_access_api:
 	make VERSION=1 API=access generate
 
 generate:
