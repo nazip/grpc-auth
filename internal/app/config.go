@@ -1,8 +1,9 @@
 package app
 
 import (
-	"github.com/nazip/grpc-auth/internal/config"
 	"log"
+
+	"github.com/nazip/grpc-auth/internal/config"
 )
 
 func (s *serviceProvider) PGConfig() config.PGConfig {

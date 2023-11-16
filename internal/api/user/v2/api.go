@@ -2,6 +2,7 @@ package v1
 
 import (
 	"context"
+
 	desc "github.com/nazip/grpc-auth/pkg/user_v2"
 	"google.golang.org/protobuf/types/known/emptypb"
 )

@@ -2,8 +2,9 @@ package helpers
 
 import (
 	"database/sql"
-	"google.golang.org/protobuf/types/known/timestamppb"
 	"time"
+
+	"google.golang.org/protobuf/types/known/timestamppb"
 )
 
 func FromSqlTime(sqlTime sql.NullTime) time.Time {

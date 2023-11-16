@@ -2,6 +2,7 @@ package pg
 
 import (
 	"context"
+
 	"github.com/nazip/grpc-auth/internal/client/db"
 
 	"github.com/jackc/pgx/v4/pgxpool"

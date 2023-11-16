@@ -3,15 +3,17 @@ package user
 import (
 	"context"
 	"database/sql"
+
 	sq "github.com/Masterminds/squirrel"
 	"github.com/nazip/grpc-auth/internal/client/db"
-	"github.com/nazip/grpc-auth/internal/converter/user/v1"
+	v1 "github.com/nazip/grpc-auth/internal/converter/user/v1"
 	"github.com/nazip/grpc-auth/internal/helpers"
 	modelRepository "github.com/nazip/grpc-auth/internal/models/repository"
 	modelService "github.com/nazip/grpc-auth/internal/models/service"
 
-	"github.com/nazip/grpc-auth/internal/repository"
 	"time"
+
+	"github.com/nazip/grpc-auth/internal/repository"
 )
 
 const (
@@ -130,4 +132,31 @@ func (u *repo) Delete(ctx context.Context, id uint64) error {
 	}
 
 	return nil
+}
+
+func (u *repo) GetUser(ctx context.Context, username, password string) (*modelService.User, error) {
+	builder := sq.Select(idColumn, nameColumn, emailColumn,
+		passwordColumn, roleColumn, createdAtColumn, updatedAtColumn).
+		PlaceholderFormat(sq.Dollar).
+		From(tableName).
+		Where(sq.Eq{nameColumn: username, passwordColumn: password}).
+		Limit(1)
+	query, args, err := builder.ToSql()
+	if err != nil {
+		return nil, err
+	}
+
+	q := db.Query{
+		Name:     "user_repository.Get",
+		QueryRaw: query,
+	}
+
+	user := modelRepository.User{}
+	err = u.db.DB().QueryRowContext(ctx, q, args...).Scan(&user.ID, &user.Name,
+		&user.Email, &user.Password, &user.Role, &user.CreatedAt, &user.UpdatedAt)
+	if err != nil {
+		return nil, err
+	}
+
+	return v1.ServiceUserFromRepo(&user), nil
 }

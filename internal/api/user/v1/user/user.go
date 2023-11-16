@@ -2,6 +2,7 @@ package user
 
 import (
 	"context"
+
 	conv "github.com/nazip/grpc-auth/internal/converter/user/v1"
 	"github.com/nazip/grpc-auth/internal/service"
 	desc "github.com/nazip/grpc-auth/pkg/user_v1"

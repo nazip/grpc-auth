@@ -3,9 +3,10 @@ package pg
 import (
 	"context"
 	"fmt"
+	"log"
+
 	"github.com/nazip/grpc-auth/internal/client/db"
 	"github.com/nazip/grpc-auth/internal/client/db/prettier"
-	"log"
 
 	"github.com/georgysavva/scany/pgxscan"
 	"github.com/jackc/pgconn"

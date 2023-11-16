@@ -2,6 +2,7 @@ package app
 
 import (
 	"context"
+
 	authAPI "github.com/nazip/grpc-auth/internal/api/auth/v1/auth"
 	"github.com/nazip/grpc-auth/internal/repository"
 	authRepository "github.com/nazip/grpc-auth/internal/repository/auth"
@@ -19,7 +20,7 @@ func (s *serviceProvider) AuthRepository(ctx context.Context) repository.AuthRep
 
 func (s *serviceProvider) AuthService(ctx context.Context) service.AuthService {
 	if s.authService == nil {
-		s.authService = authService.NewServiceAuth(s.authRepository)
+		s.authService = authService.NewServiceAuth(s.AuthRepository(ctx), s.UserService(ctx))
 	}
 	return s.authService
 }

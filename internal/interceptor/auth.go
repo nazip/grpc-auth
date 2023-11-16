@@ -2,6 +2,7 @@ package interceptor
 
 import (
 	"context"
+
 	modelService "github.com/nazip/grpc-auth/internal/models/service"
 	"google.golang.org/grpc"
 )

@@ -2,6 +2,7 @@ package tests
 
 import (
 	"context"
+
 	"github.com/brianvoe/gofakeit/v6"
 	"github.com/gojuno/minimock/v3"
 	userAPI "github.com/nazip/grpc-auth/internal/api/user/v2/user"
@@ -10,9 +11,10 @@ import (
 	serviceMocks "github.com/nazip/grpc-auth/internal/service/mocks"
 	desc "github.com/nazip/grpc-auth/pkg/user_v2"
 
+	"testing"
+
 	"github.com/stretchr/testify/require"
 	"google.golang.org/protobuf/types/known/emptypb"
-	"testing"
 )
 
 func TestUserAPI_Update(t *testing.T) {

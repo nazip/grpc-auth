@@ -2,6 +2,7 @@ package transaction
 
 import (
 	"context"
+
 	"github.com/nazip/grpc-auth/internal/client/db"
 	"github.com/nazip/grpc-auth/internal/client/db/pg"
 

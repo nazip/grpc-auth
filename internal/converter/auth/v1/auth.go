@@ -1,14 +1,13 @@
 package v1
 
 import (
-	repomodel "github.com/nazip/grpc-auth/internal/models/repository"
-	servicemodel "github.com/nazip/grpc-auth/internal/models/service"
+	"github.com/nazip/grpc-auth/internal/models/service"
+	desc "github.com/nazip/grpc-auth/pkg/auth_v1"
 )
 
-func AuthUser(repoAuthUser *repomodel.Auth) *servicemodel.Auth {
-	return &servicemodel.Auth{
-		ID:    repoAuthUser.ID,
-		Token: repoAuthUser.Token,
-		TTL:   repoAuthUser.TTL,
+func AuthServiceUser(req *desc.LoginRequest) *service.Auth {
+	return &service.Auth{
+		UserName: req.Username,
+		Password: req.Password,
 	}
 }

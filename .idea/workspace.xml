@@ -5,10 +5,56 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="574181ca-f5de-47a7-b8d1-54cd8edd6acc" name="Changes" comment="auth api added">
+      <change afterPath="$PROJECT_DIR$/internal/service/user/find.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/cc5adcef-fa51-491f-9b9c-924b45d6d263.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/cc5adcef-fa51-491f-9b9c-924b45d6d263.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/cc5adcef-fa51-491f-9b9c-924b45d6d263/storage_v2/_src_/database/auth.qN0tAA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/cc5adcef-fa51-491f-9b9c-924b45d6d263/storage_v2/_src_/database/auth.qN0tAA/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/protoc-gen-go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/auth_v1/auth.proto" beforeDir="false" afterPath="$PROJECT_DIR$/api/auth_v1/auth.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/grpc-server/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/grpc-server/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/api/access/v1/access/access.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/api/access/v1/access/access.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/api/access/v1/api.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/api/access/v1/api.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/api/auth/v1/api.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/api/auth/v1/api.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/api/auth/v1/auth/auth.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/api/auth/v1/auth/auth.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/api/user/v1/api.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/api/user/v1/api.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/api/user/v1/mocks/api_minimock.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/api/user/v1/mocks/api_minimock.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/api/user/v1/user/tests/userCreate_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/api/user/v1/user/tests/userCreate_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/api/user/v1/user/tests/userDelete_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/api/user/v1/user/tests/userDelete_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/api/user/v1/user/tests/userGet_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/api/user/v1/user/tests/userGet_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/api/user/v1/user/tests/userUpdate_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/api/user/v1/user/tests/userUpdate_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/api/user/v1/user/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/api/user/v1/user/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/api/user/v2/api.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/api/user/v2/api.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/api/user/v2/user/tests/userCreate_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/api/user/v2/user/tests/userCreate_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/api/user/v2/user/tests/userDelete_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/api/user/v2/user/tests/userDelete_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/api/user/v2/user/tests/userGet_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/api/user/v2/user/tests/userGet_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/api/user/v2/user/tests/userUpdate_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/api/user/v2/user/tests/userUpdate_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/api/user/v2/user/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/api/user/v2/user/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/app/access.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/app/access.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/app/app.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/app/app.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/app/auth.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/app/auth.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/app/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/app/config.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/app/service_provider.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/app/service_provider.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/app/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/app/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/client/db/pg/client.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/client/db/pg/client.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/client/db/pg/pg.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/client/db/pg/pg.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/client/db/redisdb/client.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/client/db/redisdb/client.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/client/db/transaction/transaction.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/client/db/transaction/transaction.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/config/redis.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/config/redis.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/converter/auth/v1/auth.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/converter/auth/v1/auth.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/helpers/sql.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/helpers/sql.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/interceptor/auth.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/interceptor/auth.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/repository/access/repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/repository/access/repository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/repository/auth/repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/repository/auth/repository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/repository/repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/repository/repository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/repository/user/repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/repository/user/repository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/service/access/service.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/service/access/service.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/service/auth/service.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/service/auth/service.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/service/service.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/service/service.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/service/user/create.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/service/user/create.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/service/user/get.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/service/user/get.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/service/user/update.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/service/user/update.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/auth_v1/auth.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/auth_v1/auth.pb.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/auth_v1/auth.pb.validate.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/auth_v1/auth.pb.validate.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,7 +76,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
@@ -61,7 +107,7 @@
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;google.protobuf.language&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;
   },
   &quot;keyToStringList&quot;: {
     &quot;DatabaseDriversLRU&quot;: [
@@ -86,15 +132,18 @@
       <recent name="$PROJECT_DIR$/internal/converter/v1" />
     </key>
   </component>
-  <component name="RunManager" selected="Makefile Target.lint">
-    <configuration name="aaa" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
-      <makefile filename="$PROJECT_DIR$/Makefile" target="aaa" workingDirectory="" arguments="">
-        <envs />
-      </makefile>
+  <component name="RunManager" selected="Go Build.go build github.com/nazip/grpc-auth/cmd/grpc-server">
+    <configuration name="go build github.com/nazip/grpc-auth/cmd/grpc-server" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="auth" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="github.com/nazip/grpc-auth/cmd/grpc-server" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/cmd/grpc-server/main.go" />
       <method v="2" />
     </configuration>
-    <configuration name="i" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
-      <makefile filename="$PROJECT_DIR$/Makefile" target="i" workingDirectory="" arguments="">
+    <configuration name="generate_auth_api" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/Makefile" target="generate_auth_api" workingDirectory="" arguments="">
         <envs />
       </makefile>
       <method v="2" />
@@ -105,8 +154,8 @@
       </makefile>
       <method v="2" />
     </configuration>
-    <configuration name="install-deps1" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
-      <makefile filename="$PROJECT_DIR$/Makefile" target="install-deps1" workingDirectory="" arguments="">
+    <configuration name="lint-fix" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/Makefile" target="lint-fix" workingDirectory="" arguments="">
         <envs />
       </makefile>
       <method v="2" />
@@ -119,17 +168,28 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Build.go build github.com/nazip/grpc-auth/cmd/grpc-server" />
         <item itemvalue="Makefile Target.lint" />
+        <item itemvalue="Makefile Target.lint-fix" />
+        <item itemvalue="Makefile Target.generate_auth_api" />
         <item itemvalue="Makefile Target.install-deps" />
-        <item itemvalue="Makefile Target.i" />
-        <item itemvalue="Makefile Target.aaa" />
-        <item itemvalue="Makefile Target.install-deps1" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />

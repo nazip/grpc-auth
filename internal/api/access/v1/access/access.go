@@ -2,6 +2,7 @@ package access
 
 import (
 	"context"
+
 	"github.com/nazip/grpc-auth/internal/service"
 	desc "github.com/nazip/grpc-auth/pkg/access_v1"
 	"google.golang.org/protobuf/types/known/emptypb"

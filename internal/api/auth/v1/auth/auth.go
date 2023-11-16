@@ -2,6 +2,8 @@ package auth
 
 import (
 	"context"
+
+	converter "github.com/nazip/grpc-auth/internal/converter/auth/v1"
 	"github.com/nazip/grpc-auth/internal/service"
 	desc "github.com/nazip/grpc-auth/pkg/auth_v1"
 )
@@ -16,7 +18,15 @@ func NewImplementation(service service.AuthService) *Implementation {
 }
 
 func (a *Implementation) Login(ctx context.Context, req *desc.LoginRequest) (*desc.LoginResponse, error) {
-	return nil, nil
+
+	resp, err := a.serviceAuth.Login(ctx, converter.AuthServiceUser(req))
+	if err != nil {
+		return nil, err
+	}
+
+	return &desc.LoginResponse{
+		RefreshToken: resp,
+	}, nil
 }
 
 func (a *Implementation) RefreshToken(ctx context.Context, req *desc.GetRefreshTokenRequest) (*desc.GetRefreshTokenResponse, error) {

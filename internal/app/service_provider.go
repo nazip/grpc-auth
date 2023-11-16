@@ -2,6 +2,8 @@ package app
 
 import (
 	"context"
+	"log"
+
 	accessAPI "github.com/nazip/grpc-auth/internal/api/access/v1/access"
 	authAPI "github.com/nazip/grpc-auth/internal/api/auth/v1/auth"
 	userAPI "github.com/nazip/grpc-auth/internal/api/user/v1/user"
@@ -13,7 +15,6 @@ import (
 	"github.com/nazip/grpc-auth/internal/config"
 	"github.com/nazip/grpc-auth/internal/repository"
 	"github.com/nazip/grpc-auth/internal/service"
-	"log"
 )
 
 type serviceProvider struct {

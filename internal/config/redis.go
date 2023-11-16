@@ -2,10 +2,11 @@ package config
 
 import (
 	"errors"
-	"github.com/redis/go-redis/v9"
 	"net"
 	"os"
 	"strconv"
+
+	"github.com/redis/go-redis/v9"
 )
 
 const (

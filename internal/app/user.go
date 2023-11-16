@@ -2,6 +2,7 @@ package app
 
 import (
 	"context"
+
 	"github.com/nazip/grpc-auth/internal/api/user/v1/user"
 
 	"github.com/nazip/grpc-auth/internal/repository"

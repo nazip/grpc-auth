@@ -2,6 +2,7 @@ package v1
 
 import (
 	"context"
+
 	desc "github.com/nazip/grpc-auth/pkg/auth_v1"
 )
 

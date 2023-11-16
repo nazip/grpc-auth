@@ -2,6 +2,8 @@ package tests
 
 import (
 	"context"
+	"testing"
+
 	"github.com/brianvoe/gofakeit/v6"
 	"github.com/gojuno/minimock/v3"
 	userAPI "github.com/nazip/grpc-auth/internal/api/user/v1/user"
@@ -10,7 +12,6 @@ import (
 	desc "github.com/nazip/grpc-auth/pkg/user_v1"
 	"github.com/stretchr/testify/require"
 	"google.golang.org/protobuf/types/known/emptypb"
-	"testing"
 )
 
 func TestUserAPI_Delete(t *testing.T) {
@@ -66,7 +67,7 @@ func TestUserAPI_Delete(t *testing.T) {
 			t.Parallel()
 
 			userServiceMock := tt.userServiceMock(mc)
-			api := userAPI.NewAPI(userServiceMock)
+			api := userAPI.NewImplementation(userServiceMock)
 
 			resp, err := api.Delete(tt.args.ctx, tt.args.req)
 			require.Equal(t, tt.err, err)

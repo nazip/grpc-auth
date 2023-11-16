@@ -2,6 +2,7 @@ package access
 
 import (
 	"context"
+
 	"github.com/nazip/grpc-auth/internal/repository"
 	def "github.com/nazip/grpc-auth/internal/service"
 )
@@ -10,7 +11,7 @@ type serviceAccess struct {
 	repository repository.AccessRepository
 }
 
-func NewServiceAuth(accessRepository repository.AccessRepository) def.AccessService {
+func NewServiceAccess(accessRepository repository.AccessRepository) def.AccessService {
 	return &serviceAccess{
 		repository: accessRepository,
 	}

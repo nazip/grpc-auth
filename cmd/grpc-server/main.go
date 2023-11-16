@@ -3,8 +3,9 @@ package main
 import (
 	"context"
 	"flag"
-	"github.com/nazip/grpc-auth/internal/app"
 	"log"
+
+	"github.com/nazip/grpc-auth/internal/app"
 )
 
 func main() {

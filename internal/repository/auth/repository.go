@@ -3,10 +3,11 @@ package auth
 import (
 	"context"
 	"encoding/json"
+	"strconv"
+
 	"github.com/nazip/grpc-auth/internal/client/db"
 	model "github.com/nazip/grpc-auth/internal/models/repository"
 	"github.com/nazip/grpc-auth/internal/repository"
-	"strconv"
 )
 
 type repo struct {

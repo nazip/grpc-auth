@@ -2,6 +2,8 @@ package tests
 
 import (
 	"context"
+	"testing"
+
 	"github.com/brianvoe/gofakeit/v6"
 	"github.com/gojuno/minimock/v3"
 	userAPI "github.com/nazip/grpc-auth/internal/api/user/v2/user"
@@ -10,7 +12,6 @@ import (
 	desc "github.com/nazip/grpc-auth/pkg/user_v2"
 	"github.com/stretchr/testify/require"
 	"google.golang.org/protobuf/types/known/emptypb"
-	"testing"
 )
 
 func TestAPI_Delete(t *testing.T) {

@@ -2,6 +2,7 @@ package app
 
 import (
 	"context"
+
 	accessAPI "github.com/nazip/grpc-auth/internal/api/access/v1/access"
 	"github.com/nazip/grpc-auth/internal/repository"
 	accessRepository "github.com/nazip/grpc-auth/internal/repository/access"
@@ -9,17 +10,17 @@ import (
 	accessService "github.com/nazip/grpc-auth/internal/service/access"
 )
 
-func (s *serviceProvider) AccessRepository(ctx context.Context) repository.AuthRepository {
+func (s *serviceProvider) AccessRepository(ctx context.Context) repository.AccessRepository {
 	if s.accessRepository == nil {
 		s.accessRepository = accessRepository.NewRepository(s.redisClient)
 	}
 
-	return s.authRepository
+	return s.accessRepository
 }
 
 func (s *serviceProvider) AccessService(ctx context.Context) service.AccessService {
 	if s.accessService == nil {
-		s.accessService = accessService.NewServiceAuth(s.accessRepository)
+		s.accessService = accessService.NewServiceAccess(s.AccessRepository(ctx))
 	}
 	return s.accessService
 }

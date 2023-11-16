@@ -2,6 +2,7 @@ package user
 
 import (
 	"context"
+
 	model "github.com/nazip/grpc-auth/internal/models/service"
 )
 

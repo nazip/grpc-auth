@@ -22,7 +22,7 @@ service AuthV1 {
 
 message LoginRequest {
     string username = 1 [(validate.rules).string = {min_len: 1, max_len: 50}];
-    string password = 2;
+    string password = 2 [(validate.rules).string = {min_len: 1, max_len: 50}];
 }
 
 message LoginResponse {
