@@ -11,7 +11,7 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
 
-	"github.com/nazip/grpc-auth/cmd/grpc-server/user_v1/server"
+	userServer "github.com/nazip/grpc-auth/internal/api/user_v1"
 	desc "github.com/nazip/grpc-auth/pkg/user_v1"
 )
 
@@ -25,8 +25,8 @@ func main() {
 
 	s := grpc.NewServer()
 	reflection.Register(s)
-	server := server.NewServer()
-	desc.RegisterUserV1Server(s, server)
+	serverGRPC := userServer.UserServer{}
+	desc.RegisterUserV1Server(s, serverGRPC)
 
 	stop := make(chan os.Signal, 1)
 	signal.Notify(stop, syscall.SIGTERM, syscall.SIGINT)
