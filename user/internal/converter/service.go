@@ -16,11 +16,7 @@ func FromProtoToService(request desc.CreateRequest) model.CreateRequest {
 }
 
 func FromServiceToProto(request model.CreateResponse) desc.CreateResponse {
-	return model.CreateResponse{
-		Name:            request.Name,
-		Email:           request.Email,
-		Password:        request.Password,
-		PasswordConfirm: request.PasswordConfirm,
-		Role:            model.Role(request.Role),
+	return desc.CreateResponse{
+		Id: request.Id,
 	}
 }

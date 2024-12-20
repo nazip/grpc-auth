@@ -6,7 +6,7 @@ import (
 	desc "github.com/nazip/grpc-auth/pkg/user_v1"
 )
 
-func (u UserServer) Create(ctx context.Context, req *desc.CreateRequest) (*desc.CreateResponse, error) {
+func (u User) Create(ctx context.Context, req *desc.CreateRequest) (*desc.CreateResponse, error) {
 
 	resp, err := u.Service.Create(ctx, converter.FromProtoToService(*req))
 	if err != nil {
@@ -14,6 +14,6 @@ func (u UserServer) Create(ctx context.Context, req *desc.CreateRequest) (*desc.
 	}
 
 	return &desc.CreateResponse{
-		Id: 33,
+		Id: resp.Id,
 	}, nil
 }

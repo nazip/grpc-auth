@@ -5,7 +5,13 @@ import (
 	desc "github.com/nazip/grpc-auth/pkg/user_v1"
 )
 
-type UserServer struct {
+type User struct {
 	desc.UnimplementedUserV1Server
 	Service service.Service
+}
+
+func NewUser(service service.Service) *User {
+	return &User{
+		Service: service,
+	}
 }

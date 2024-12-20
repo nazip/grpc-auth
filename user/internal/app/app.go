@@ -7,7 +7,6 @@ import (
 
 type App struct {
 	serviceProvider *serviceProvider
-	//configFile      string
 	//httpServer      desc.ServerHttpChi
 	//metricsServer desc.ServerMetrics
 }
