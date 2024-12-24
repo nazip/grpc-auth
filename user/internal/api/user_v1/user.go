@@ -7,10 +7,10 @@ import (
 
 type User struct {
 	desc.UnimplementedUserV1Server
-	Service service.Service
+	Service service.UserService
 }
 
-func NewUser(service service.Service) *User {
+func NewUser(service service.UserService) *User {
 	return &User{
 		Service: service,
 	}

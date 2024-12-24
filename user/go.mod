@@ -5,6 +5,7 @@ go 1.22.2
 require (
 	github.com/brianvoe/gofakeit v3.18.0+incompatible
 	github.com/joho/godotenv v1.5.1
+	github.com/nazip/platform_common v0.0.0-20240212081649-179f18e94f7e
 	google.golang.org/grpc v1.69.0
 	google.golang.org/protobuf v1.36.0
 )

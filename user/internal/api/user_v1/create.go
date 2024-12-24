@@ -8,7 +8,7 @@ import (
 
 func (u User) Create(ctx context.Context, req *desc.CreateRequest) (*desc.CreateResponse, error) {
 
-	resp, err := u.Service.Create(ctx, converter.FromProtoToService(*req))
+	resp, err := u.Service.Create(ctx, converter.FromProtoToService(req))
 	if err != nil {
 		return nil, err
 	}

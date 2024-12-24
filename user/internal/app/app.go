@@ -2,11 +2,14 @@ package app
 
 import (
 	"context"
+
 	"github.com/nazip/grpc-auth/internal/config"
+	"google.golang.org/grpc"
 )
 
 type App struct {
 	serviceProvider *serviceProvider
+	grpcServer      *grpc.Server
 	//httpServer      desc.ServerHttpChi
 	//metricsServer desc.ServerMetrics
 }
@@ -24,8 +27,8 @@ func NewApp(ctx context.Context) (*App, error) {
 func (a *App) initDeps(ctx context.Context) error {
 	inits := []func(context.Context) error{
 		a.initConfig,
-		//a.initServiceProvider,
-		//a.initGRPCServer,
+		a.initServiceProvider,
+		a.initGRPCServer,
 	}
 
 	for _, f := range inits {
@@ -39,10 +42,10 @@ func (a *App) initDeps(ctx context.Context) error {
 }
 
 func (a *App) initConfig(_ context.Context) error {
-	return config.Load(".env")
-}
-
-func (a *App) Run() error {
+	err := config.Load(".env")
+	if err != nil {
+		return err
+	}
 
 	return nil
 }

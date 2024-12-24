@@ -5,6 +5,6 @@ import (
 	desc "github.com/nazip/grpc-auth/pkg/user_v1"
 )
 
-type API interface {
+type UserAPI interface {
 	Create(context.Context, *desc.CreateRequest) (*desc.CreateResponse, error)
 }
